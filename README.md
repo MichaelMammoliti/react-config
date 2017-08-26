@@ -9,5 +9,5 @@ This package contains:
 - React.
 
 # Run
-`npm i`
-`npm start`
+```npm i```
+```npm start```

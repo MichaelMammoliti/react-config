@@ -1,4 +1,5 @@
-var path = require('path');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './app/index.js',
@@ -36,10 +37,37 @@ module.exports = {
     ]
   },
 
+  resolve: {
+    alias: {
+      Components: path.resolve(__dirname, './app/components/'),
+    },
+    extensions: ['.js', '.jsx'],
+    mainFiles: ['index', 'main'],
+    modules: [
+      'node_modules',
+    ]
+  },
+
+  plugins: [
+    new webpack.ProvidePlugin({
+      PropTypes: 'prop-types',
+      React: 'react',
+      ReactDOM: 'react-dom',
+    }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+  ],
+
+  devtool: 'eval',
+  stats: "errors-only",
+
   devServer: {
     publicPath: '/',
     stats: {
       modules: false,
-    }
-  }
+    },
+    noInfo: true,
+    hot: true,
+  },
+
 };

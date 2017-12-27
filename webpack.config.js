@@ -59,6 +59,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     mainFiles: ['index', 'main'],
     modules: [
+      'app',
       'node_modules',
     ],
   },
@@ -69,15 +70,28 @@ module.exports = {
       React: 'react',
       ReactDOM: 'react-dom',
     }),
+
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
   ],
 
   devtool: 'eval',
-  stats: "errors-only",
 
   devServer: {
+    hot: true,
+    open: true,
     publicPath: '/',
+    inline: true,
+    overlay: true,
+    port: 9000,
     stats: {
       modules: false,
+      colors: true,
+      env: false,
+      publicPath: true,
+      timings: true,
+      version: true,
+      errors: true,
     },
   },
 

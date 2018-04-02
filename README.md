@@ -1,14 +1,14 @@
 # react-config
-A react package with the basic config for a React development environment. 
+A react package with the basic config for a React development environment.
 
-This package contains:
+This package includes:
 - Babel;
-- ES6;
+- ES6 (env, stage 3);
 - Webpack and Webpack Dev Server;
 - CSS Modules (default .scss extension);
+- SVG support (raw-loader)
+- eslint (airbnb);
 - React.
 
-# Run
-```npm i```
-
-```npm start```
+# Install and run
+```npm i && npm start```
